@@ -1,9 +1,23 @@
 package com.example.spring_jwt_test.domain;
 
+
+
+
+
+
+
+
+
+import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
 public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private Long id;//primary_key{001,002,003,004...}
     private String userId;//EN91361
     private String firstName;
