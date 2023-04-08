@@ -1,13 +1,6 @@
 package com.example.spring_jwt_test.domain;
 
 
-
-
-
-
-
-
-
 import javax.persistence.*;
 
 import java.io.Serializable;

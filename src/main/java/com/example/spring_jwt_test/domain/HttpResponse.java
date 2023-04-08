@@ -1,8 +1,13 @@
 package com.example.spring_jwt_test.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
 
+import java.util.Date;
+
 public class HttpResponse {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy hh:mm:ss", timezone = "America/New_York")
+    private Date timeStamp;
     private int httpStatusCode;//200,201,400,500
     private HttpStatus httpStatus;
     private String reason;
@@ -11,11 +16,20 @@ public class HttpResponse {
     public HttpResponse() {
     }
 
-    public HttpResponse(int httpStatusCode, HttpStatus httpStatus, String reason, String message) {
+    public HttpResponse(Date timeStamp, int httpStatusCode, HttpStatus httpStatus, String reason, String message) {
+        this.timeStamp = timeStamp;
         this.httpStatusCode = httpStatusCode;
         this.httpStatus = httpStatus;
         this.reason = reason;
         this.message = message;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public int getHttpStatusCode() {
